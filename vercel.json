@@ -1,0 +1,10 @@
+{
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/cyber", "destination": "/index.html" },
+    { "source": "/estrategia-cm2026", "destination": "/gracias.html" }
+  ],
+  "redirects": [
+    { "source": "/", "destination": "/cyber", "permanent": false }
+  ]
+}
