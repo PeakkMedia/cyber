@@ -709,3 +709,11 @@ html.page-gracias{ --primary: #37ca37;
     background:center / contain no-repeat url("https://fast.wistia.com/embed/medias/re0203ge20/swatch");
     display:block;filter:blur(5px);padding-top:56.25%;
   }
+
+
+/* ── Logo del encabezado (gracias.html) ──
+   Alto fijo para que la seccion no colapse si el archivo falta. */
+html.page-gracias .logo-header{
+  display:block;height:100px;width:auto;max-width:100%;
+  margin:0 auto;object-fit:contain;
+}
