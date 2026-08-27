@@ -731,3 +731,9 @@ html.page-gracias .calendario.cargado{min-height:0;}
 html.page-gracias #iclosed-embed{width:100%;height:auto;}
 html.page-gracias #iclosed-embed iframe{width:100%;border:0;display:block;}
 html.page-gracias #iclosed-embed iframe.iframe-fallback{min-height:640px;}
+
+/* foto4: mas chica y centrada dentro de su columna */
+html.page-gracias .captura--chica{max-width:560px;margin-left:auto;margin-right:auto;}
+@media (max-width:767px){
+  html.page-gracias .captura--chica{max-width:100%;}
+}
