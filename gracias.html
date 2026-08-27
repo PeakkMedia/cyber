@@ -491,12 +491,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    renderiza comprimido. */
 window.PeakkCalendario = (function(){
   var BASE = "https://app.iclosed.io/e/peakkmedia/consultoria-peakk-media";
-  // Parámetros que se pasan al widget además de cualquier utm_*
+  // Parametros que se pasan al widget ademas de cualquier utm_*
   var EXTRA = ['iclosedName','iclosedEmail','iclosedPhone','evento_id','calificado','fbclid','gclid'];
 
-  var seccion = document.getElementById('reservar');
-  var widget  = document.getElementById('iclosed-embed');
-  var ph      = document.getElementById('calendar-placeholder');
+  var seccion  = document.getElementById('reservar');
+  var caja     = document.querySelector('.calendario');
+  var widget   = document.getElementById('iclosed-embed');
+  var ph       = document.getElementById('calendar-placeholder');
   var iniciado = false;
 
   function armarUrl(){
@@ -511,19 +512,40 @@ window.PeakkCalendario = (function(){
     return cadena ? BASE + '?' + cadena : BASE;
   }
 
-  function ocultarPlaceholder(){ if(ph) ph.style.display = 'none'; }
+  function hayIframe(){ return widget && widget.querySelector('iframe'); }
 
-  /* Plan B: si widget.js no carga o no expone load(), metemos el
-     iframe a mano. La página del evento funciona igual embebida. */
+  /* El widget puede tardar en inyectar su iframe. Si algo mete un segundo,
+     lo sacamos: dos calendarios apilados era el bug anterior. */
+  function dejarUnoSolo(){
+    if(!widget) return;
+    var frames = widget.querySelectorAll('iframe');
+    for(var i = 1; i < frames.length; i++) frames[i].parentNode.removeChild(frames[i]);
+  }
+
+  function listo(){
+    if(ph) ph.style.display = 'none';
+    if(caja) caja.classList.add('cargado');   // libera el alto minimo
+    dejarUnoSolo();
+  }
+
+  /* Plan B: solo si el widget oficial nunca aparecio. */
   function iframeManual(url){
-    if(!widget || widget.querySelector('iframe')) return;
+    if(hayIframe()) return;
     var f = document.createElement('iframe');
     f.src = url;
-    f.title = 'Reservá tu sesión';
+    f.title = 'Reserva tu sesion';
+    f.className = 'iframe-fallback';
     f.setAttribute('frameborder','0');
     f.allow = 'camera; microphone; autoplay; encrypted-media; fullscreen';
     widget.appendChild(f);
-    ocultarPlaceholder();
+    listo();
+  }
+
+  function cargarWidget(){
+    if(window.IClosedWidget && typeof window.IClosedWidget.load === 'function'){
+      try { window.IClosedWidget.load(); return true; } catch(e){ return false; }
+    }
+    return false;
   }
 
   function iniciar(){
@@ -534,29 +556,29 @@ window.PeakkCalendario = (function(){
     widget.setAttribute('data-url', url);
     widget.classList.add('iclosed-widget');
 
-    if(window.IClosedWidget && typeof window.IClosedWidget.load === 'function'){
-      try { window.IClosedWidget.load(); } catch(e){ iframeManual(url); }
-    } else {
-      iframeManual(url);
-    }
-
+    // Avisamos apenas aparece el iframe, sin adivinar cuanto tarda.
     var observer = new MutationObserver(function(){
-      if(widget.innerHTML.trim() !== ''){ ocultarPlaceholder(); observer.disconnect(); }
+      if(hayIframe()){ listo(); observer.disconnect(); }
     });
     observer.observe(widget, { childList:true, subtree:true });
 
-    // Si a los 3 segundos no renderizó nada, va el iframe.
-    setTimeout(function(){
-      if(widget.innerHTML.trim() === '') iframeManual(url);
-    }, 3000);
+    if(!cargarWidget()){
+      // widget.js todavia no cargo: lo esperamos hasta 8s antes del plan B.
+      var intentos = 0;
+      var espera = setInterval(function(){
+        intentos++;
+        if(cargarWidget() || hayIframe()){ clearInterval(espera); return; }
+        if(intentos >= 16){ clearInterval(espera); iframeManual(url); }
+      }, 500);
+    }
 
-    // Última red: si tampoco cargó, se lo decimos al lead.
+    // Ultima red: si a los 20s no hay nada, se lo decimos al lead.
     setTimeout(function(){
-      if(widget.innerHTML.trim() === '' && ph){
+      if(!hayIframe() && ph){
         ph.innerHTML = '<p style="font-family:var(--texto);color:#444;">'
           + 'No pudimos cargar el calendario. Escribinos por WhatsApp y te agendamos a mano.</p>';
       }
-    }, 12000);
+    }, 20000);
   }
 
   return {
