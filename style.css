@@ -668,12 +668,12 @@ html.page-gracias{ --primary: #37ca37;
   }html.page-gracias .calendario{
     position:relative;width:100%;
     margin-top:22px;
-    min-height:860px;
+    min-height:560px;
   }html.page-gracias #calendar-placeholder{
     position:absolute;inset:0;
     display:flex;align-items:center;justify-content:center;
     background:#f4f4f4;border-radius:6px;text-align:center;padding:24px;
-  }html.page-gracias #iclosed-embed{width:100%;min-height:860px;}html.page-gracias #iclosed-embed iframe{width:100%;min-height:860px;border:0;display:block;}html.page-gracias .descargo{padding:26px 0 30px;}html.page-gracias .descargo .wrap{
+  }html.page-gracias #iclosed-embed{width:100%;}html.page-gracias #iclosed-embed iframe{width:100%;border:0;display:block;}html.page-gracias .descargo{padding:26px 0 30px;}html.page-gracias .descargo .wrap{
     border-top:1px solid var(--linea);
     padding-top:20px;
   }html.page-gracias .descargo p{
@@ -705,7 +705,7 @@ html.page-gracias{ --primary: #37ca37;
   }html.page-gracias .wa-circulo:hover{transform:scale(1.1);}@keyframes rebote{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(-4px);}
-  }html.page-gracias :focus-visible{outline:2px solid var(--verde);outline-offset:3px;}@media (max-width:900px){html.page-gracias .grid-3{grid-template-columns:1fr;gap:16px;}html.page-gracias .grid-3 .captura:nth-child(3){max-width:100%;}}@media (max-width:767px){html.page-gracias body{font-size:16px;}html.page-gracias .sec{padding:38px 0;}html.page-gracias .cuenta{gap:6px;}html.page-gracias .cuenta-caja{padding:10px 4px;}html.page-gracias .cuenta-unidad{font-size:9.5px;letter-spacing:.1em;}html.page-gracias .wa-flotante{bottom:14px;right:14px;gap:8px;}html.page-gracias .wa-globo{font-size:12.5px;padding:8px 12px;}html.page-gracias .wa-circulo{width:52px;height:52px;min-width:52px;}html.page-gracias .descargo{padding-bottom:86px;}html.page-gracias .calendario{min-height:820px;}html.page-gracias #iclosed-embed,html.page-gracias #iclosed-embed iframe{min-height:820px;}}@media (prefers-reduced-motion:reduce){html.page-gracias{scroll-behavior:auto;}html.page-gracias *{transition:none!important;animation:none!important;}}html.page-gracias wistia-player[media-id="re0203ge20"]:not(:defined){
+  }html.page-gracias :focus-visible{outline:2px solid var(--verde);outline-offset:3px;}@media (max-width:900px){html.page-gracias .grid-3{grid-template-columns:1fr;gap:16px;}html.page-gracias .grid-3 .captura:nth-child(3){max-width:100%;}}@media (max-width:767px){html.page-gracias body{font-size:16px;}html.page-gracias .sec{padding:38px 0;}html.page-gracias .cuenta{gap:6px;}html.page-gracias .cuenta-caja{padding:10px 4px;}html.page-gracias .cuenta-unidad{font-size:9.5px;letter-spacing:.1em;}html.page-gracias .wa-flotante{bottom:14px;right:14px;gap:8px;}html.page-gracias .wa-globo{font-size:12.5px;padding:8px 12px;}html.page-gracias .wa-circulo{width:52px;height:52px;min-width:52px;}html.page-gracias .descargo{padding-bottom:86px;}html.page-gracias .calendario{min-height:640px;}}@media (prefers-reduced-motion:reduce){html.page-gracias{scroll-behavior:auto;}html.page-gracias *{transition:none!important;animation:none!important;}}html.page-gracias wistia-player[media-id="re0203ge20"]:not(:defined){
     background:center / contain no-repeat url("https://fast.wistia.com/embed/medias/re0203ge20/swatch");
     display:block;filter:blur(5px);padding-top:56.25%;
   }
@@ -722,3 +722,12 @@ html.page-index .logo-header{
   display:block;height:100px;width:auto;max-width:100%;
   margin:0 auto;object-fit:contain;
 }
+
+/* ── Calendario: alto segun contenido ──
+   .calendario arranca con un minimo para que el placeholder no salte,
+   y lo suelta apenas el widget inyecta su iframe. El widget de iClosed
+   ajusta su propia altura, asi que no hay que fijarsela. */
+html.page-gracias .calendario.cargado{min-height:0;}
+html.page-gracias #iclosed-embed{width:100%;height:auto;}
+html.page-gracias #iclosed-embed iframe{width:100%;border:0;display:block;}
+html.page-gracias #iclosed-embed iframe.iframe-fallback{min-height:640px;}
