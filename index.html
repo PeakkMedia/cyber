@@ -771,13 +771,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         tipo_negocio: datos.negocio,
         inversion_ads: datos.inversion,
         lead_calificado: calificado ? 1 : 0,
-        evento_id: eventoId
+        evento_id: eventoId,
+        eventCallback: redirigir,
+        eventTimeout: 2000
       });
       if (DEBUG) console.log('[GTM]', calificado ? 'lead_calificado' : 'lead_no_calificado', datos);
 
       // El webhook viaja con keepalive, así que no hace falta esperarlo.
-      // La pausa es solo para que el cambio de pantalla no se sienta brusco.
-      setTimeout(redirigir, 450);
+      // eventCallback redirige apenas GTM termina de disparar las etiquetas.
+      // Este setTimeout es la red de seguridad por si GTM está bloqueado:
+      // redirigir() tiene guarda propia contra la doble ejecución.
+      setTimeout(redirigir, 2200);
     });
 
     /* ── Reinicio al cerrar (no aplica si ya envió o fue descalificado) ── */
@@ -797,6 +801,4 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript></div><div id="gb-track-hl-custom-code"><!-- Google Tag Manager (noscript) --> 
   
  <!-- End Google Tag Manager (noscript) --></div><!--]--></div><!----></div><!--]--></div><!--]--><!--]--></div><div id="teleports"></div>
-<script type="text/javascript" id="" charset="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1355678006198673");fbq("track","PageView");</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1355678006198673&amp;ev=PageView&amp;noscript=1"></noscript>
 </body></html>
