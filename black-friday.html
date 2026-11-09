@@ -35,7 +35,7 @@
 <header class="barra">
   <div class="barra-inner">
     <a class="barra-logo" href="#top" aria-label="Peakk Media">
-      <img src="assets/logo.png" alt="Peakk Media" width="120" height="99">
+      <img src="assets/logo-peakk.png" alt="Peakk Media" width="120" height="99">
       <span class="barra-marca">Peakk Media</span>
     </a>
     <button type="button" class="btn btn--chico js-open-form">Reservar mi lugar</button>
@@ -196,7 +196,7 @@
     <div class="pie-grid">
       <div>
         <span class="pie-marca">
-          <img class="pie-logo" src="assets/logo.png" alt="Peakk Media" width="120" height="99">
+          <img class="pie-logo" src="assets/logo-peakk.png" alt="Peakk Media" width="120" height="99">
           <span class="pie-marca-nombre">Peakk Media</span>
         </span>
         <p class="pie-lema">Construyendo la comunidad más grande y exitosa de marcas de ecommerce en Latinoamérica.</p>
@@ -361,7 +361,9 @@
       <div class="ms-final" id="ms-thanks">
         <span class="ms-icon">✓</span>
         <h3>Listo, tu lugar está reservado</h3>
-        <p>Esta pantalla solo se ve en modo prueba. En producción el formulario redirige a la thank you page.</p>
+        <p>Revisá tu mail: ahí te llegan el link del webinar, los +30 creativos validados y la calculadora de márgenes.</p>
+        <!-- Esta pantalla aparece solo si WHATSAPP_URL está vacío o DEBUG = true -->
+
       </div>
 
     </div>
@@ -405,6 +407,11 @@
      Todo sale por el webhook. Zapier se encarga de
      repartir a iClosed y a ActiveCampaign.
 
+     Al terminar, el lead va directo al link de
+     WhatsApp (WHATSAPP_URL). El webhook sale ANTES
+     del redirect y con keepalive, así que el alta
+     en ActiveCampaign no depende de a dónde vaya.
+
      El mail con el acceso al webinar y los regalos
      NO lo dispara esta página: lo dispara el Zap,
      sumando el contacto a la lista o al tag del
@@ -426,10 +433,14 @@
 
     // CALIFICADO = marca online Y 1k o más de inversión mensual
     var RECHAZAR_NO_APTOS = false;     // true = el que no califica ve pantalla de corte
-                                       //        y no llega a la thank you page
+                                       //        y no llega a WhatsApp
     var ENVIAR_PARCIALES = false;      // en true, manda al pasar del paso 1 al 2
 
-    var URL_GRACIAS = '/webinar-bf2026';   // CAMBIÁ por la thank you page del webinar
+    // PEGÁ ACÁ EL LINK DE WHATSAPP (grupo o chat), por ejemplo:
+    //   'https://chat.whatsapp.com/XXXXXXXXXXXXXXX'
+    //   'https://wa.me/5491161354143?text=Hola!'
+    // Vacío: no redirige y muestra "Listo, tu lugar está reservado" en el modal.
+    var WHATSAPP_URL = '';
     // DEBUG en true: no redirige y loguea todo en consola. Volver a false al publicar.
     var DEBUG = false;
 
@@ -798,27 +809,22 @@
       });
     });
 
-    /* ── Redirect a la thank you page (con datos para el embed de iClosed) ── */
+    /* ── Redirect al link de WhatsApp ──
+       El link va tal cual, sin agregarle parámetros: los links de grupo
+       y de wa.me no los necesitan. Los datos del lead ya viajaron a
+       Zapier por el webhook. */
     function redirigir() {
       if (yaRedirigio) return;
       yaRedirigio = true;
 
-      if (DEBUG || !URL_GRACIAS) {
-        if (DEBUG) console.log('[FIN] destino:', URL_GRACIAS || '(pantalla de prueba en el modal)', datos);
+      var destino = String(WHATSAPP_URL || '').trim();
+      if (DEBUG || !destino) {
+        if (DEBUG) console.log('[FIN] destino:', destino || '(sin link: pantalla de confirmación en el modal)', datos);
         pantallaFinal(thanks);
         return;
       }
 
-      var q = new URLSearchParams({
-        iclosedName: datos.nombre,
-        iclosedEmail: datos.email,
-        iclosedPhone: datos.telefono,
-        calificado: calificado ? '1' : '0',
-        evento_id: eventoId
-      });
-      Object.keys(TRACKING).forEach(function (k) { if (TRACKING[k]) q.append(k, TRACKING[k]); });
-
-      window.location.href = URL_GRACIAS + '?' + q.toString();
+      window.location.href = destino;
     }
 
     /* ── Envío ── */
