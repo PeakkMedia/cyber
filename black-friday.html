@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tu mejor Black Friday sin regalar tu margen | Peakk Media</title>
-  <meta name="description" content="Webinar gratuito: cómo hacer tu mejor Black Friday sin regalar tu margen. Registrate y llevate +30 creativos validados y una calculadora de márgenes y costos.">
+  <meta name="description" content="Webinar gratuito: cómo hacer tu mejor Black Friday sin regalar tu margen. Sumate y llevate +30 creativos validados y una calculadora de márgenes y costos.">
   <meta name="author" content="Peakk Media">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Cómo hacer tu mejor Black Friday sin regalar tu margen">
@@ -38,7 +38,7 @@
       <img src="assets/logo-peakk.png" alt="Peakk Media" width="120" height="99">
       <span class="barra-marca">Peakk Media</span>
     </a>
-    <button type="button" class="btn btn--chico js-open-form">Reservar mi lugar</button>
+    <a class="btn btn--chico js-whatsapp" href="#" data-ubicacion="barra">Reservar mi lugar</a>
   </div>
 </header>
 
@@ -46,17 +46,17 @@
 <section class="sec hero" id="top">
   <div class="wrap">
     <!-- EDITÁ LA FECHA Y HORA DEL WEBINAR -->
-    <p class="pildora">Webinar en vivo | 16 de noviembre · 19:00 h ARG</p>
+    <p class="pildora">Webinar en vivo · [DÍA] de noviembre · [HORA] h ARG</p>
     <h1>Cómo hacer tu mejor Black Friday <span class="destaque">sin regalar tu margen</span></h1>
     <p class="bajada">Black Friday es el viernes 27 de noviembre. Vender mucho ese día es fácil si regalás la ganancia. La idea es vender mucho y que los números cierren.</p>
 
     <div class="acciones">
-      <button type="button" class="btn js-open-form">Quiero mi lugar en el webinar</button>
+      <a class="btn js-whatsapp" href="#" data-ubicacion="portada">Quiero mi lugar en el webinar</a>
     </div>
-    <p class="micro">Gratis. Te llega el acceso por mail y WhatsApp.</p>
+    <p class="micro">Gratis. Te sumás por WhatsApp y ahí te llega el acceso.</p>
 
     <div class="marco" data-aparece>
-      <div class="marco-titulo">Por registrarte te llevás <small>Dos herramientas para usar esta misma semana</small></div>
+      <div class="marco-titulo">Por sumarte te llevás <small>Dos herramientas para usar esta misma semana</small></div>
       <div class="regalos">
         <div class="regalo">
           <div class="regalo-num">+30</div>
@@ -130,7 +130,7 @@
     </div>
 
     <div class="acciones" style="margin-top:40px">
-      <button type="button" class="btn btn--tinta js-open-form">Reservar mi lugar</button>
+      <a class="btn btn--tinta js-whatsapp" href="#" data-ubicacion="temario">Reservar mi lugar</a>
     </div>
   </div>
 </section>
@@ -183,9 +183,9 @@
   <div class="wrap">
     <p class="pildora">Webinar en vivo · Gratis</p>
     <h2>Llegá al 27 sabiendo cuánto podés descontar y qué anuncios vas a subir</h2>
-    <p class="bajada">Registrate y te llegan el acceso, los +30 creativos validados y la calculadora de márgenes.</p>
+    <p class="bajada">Sumate por WhatsApp y te llegan el acceso, los +30 creativos validados y la calculadora de márgenes.</p>
     <div class="acciones">
-      <button type="button" class="btn js-open-form">Quiero mi lugar en el webinar</button>
+      <a class="btn js-whatsapp" href="#" data-ubicacion="cierre">Quiero mi lugar en el webinar</a>
     </div>
   </div>
 </section>
@@ -226,671 +226,37 @@
   </div>
 </footer>
 
-<!-- ════════════════════════════════════════════════
-     MODAL — FORMULARIO EN 3 PASOS
-     Paso 1: nombre y email
-     Paso 2: teléfono (WhatsApp)
-     Paso 3: tipo de negocio + inversión en ads
-     ════════════════════════════════════════════════ -->
-<div class="modal-overlay" id="form-modal" role="dialog" aria-modal="true" aria-label="Registro al webinar">
-  <div class="modal-box">
-    <button type="button" class="modal-close" id="modal-close" aria-label="Cerrar">×</button>
-
-    <div class="ms-form" id="ms-form">
-
-      <div class="ms-progress" id="ms-progress">
-        <span class="done"></span><span></span><span></span>
-      </div>
-
-      <!-- PASO 1 — nombre y email -->
-      <div class="ms-step active" data-step="1">
-        <p class="ms-eyebrow">Paso 1 de 3</p>
-        <h3>Reservá tu lugar en el webinar</h3>
-        <p class="ms-sub">Te mandamos el acceso y los regalos por mail: +30 creativos validados y la calculadora de márgenes.</p>
-
-        <div class="ms-field">
-          <label for="ms-nombre">Nombre <i>*</i></label>
-          <input type="text" id="ms-nombre" name="fullname" placeholder="Tu nombre" autocomplete="name">
-          <p class="ms-error" id="err-nombre">Escribí tu nombre para continuar.</p>
-        </div>
-
-        <div class="ms-field">
-          <label for="ms-email">Email <i>*</i></label>
-          <input type="email" id="ms-email" name="email" placeholder="Tu mejor email" autocomplete="email" inputmode="email" spellcheck="false">
-          <p class="ms-error" id="err-email">Revisá el email: falta el @ o el dominio.</p>
-          <p class="ms-suggest" id="sug-email">¿Quisiste decir <button type="button" id="sug-email-btn"></button>?</p>
-        </div>
-
-        <button type="button" class="ms-btn" id="ms-next-1">Siguiente →</button>
-      </div>
-
-      <!-- PASO 2 — teléfono -->
-      <div class="ms-step" data-step="2">
-        <p class="ms-eyebrow">Paso 2 de 3</p>
-        <h3>¿Cuál es tu número de teléfono?</h3>
-        <p class="ms-sub">Lo usamos para mandarte el link del webinar y el recordatorio antes de empezar. Nada más que eso.</p>
-
-        <div class="ms-field">
-          <label for="ms-tel">Teléfono <i>*</i></label>
-          <div class="ms-tel">
-            <select id="ms-cc" aria-label="Código de país">
-              <option value="54" selected="">🇦🇷 +54</option>
-              <option value="598">🇺🇾 +598</option>
-              <option value="56">🇨🇱 +56</option>
-              <option value="595">🇵🇾 +595</option>
-              <option value="591">🇧🇴 +591</option>
-              <option value="51">🇵🇪 +51</option>
-              <option value="57">🇨🇴 +57</option>
-              <option value="593">🇪🇨 +593</option>
-              <option value="52">🇲🇽 +52</option>
-              <option value="55">🇧🇷 +55</option>
-              <option value="34">🇪🇸 +34</option>
-              <option value="1">🇺🇸 +1</option>
-            </select>
-            <input type="tel" id="ms-tel" placeholder="11 2345 6789" inputmode="tel" autocomplete="tel">
-          </div>
-          <p class="ms-error" id="err-tel">Revisá el número: con característica y sin el 15.</p>
-          <p class="ms-hint">Con característica, sin el 0 ni el 15. Ejemplo: 11 2345 6789.</p>
-        </div>
-
-        <button type="button" class="ms-btn" id="ms-next-2">Siguiente →</button>
-        <button type="button" class="ms-back" data-goto="1">← Volver</button>
-      </div>
-
-      <!-- PASO 3 — dos preguntas: negocio + inversión -->
-      <div class="ms-step" data-step="3">
-        <p class="ms-eyebrow">Paso 3 de 3</p>
-        <h3>Contanos de tu negocio</h3>
-        <p class="ms-sub">Dos preguntas y tu lugar queda reservado.</p>
-
-        <div class="ms-group">
-          <p class="ms-q">¿Qué tipo de negocio tenés?</p>
-          <div class="ms-options">
-            <button type="button" class="ms-opt" data-negocio="ecommerce" data-apto="1">
-              <span class="dot"></span>Tienda Online / Ecommerce / Marca Online
-            </button>
-            <button type="button" class="ms-opt" data-negocio="infoproducto" data-apto="0">
-              <span class="dot"></span>Infoproducto
-            </button>
-            <button type="button" class="ms-opt" data-negocio="agencia" data-apto="0">
-              <span class="dot"></span>Agencia
-            </button>
-            <button type="button" class="ms-opt" data-negocio="otro" data-apto="0">
-              <span class="dot"></span>Otro
-            </button>
-          </div>
-          <p class="ms-error" id="err-negocio">Elegí el tipo de negocio.</p>
-        </div>
-
-        <div class="ms-group">
-          <p class="ms-q">¿Cuánto invertís en ads por mes?</p>
-          <div class="ms-options">
-            <button type="button" class="ms-opt" data-inversion="Menos de 1k USD" data-inv-apto="0">
-              <span class="dot"></span>Menos de 1k USD
-            </button>
-            <button type="button" class="ms-opt" data-inversion="1K-2K USD" data-inv-apto="1">
-              <span class="dot"></span>1K – 2K USD
-            </button>
-            <button type="button" class="ms-opt" data-inversion="2K-5K USD" data-inv-apto="1">
-              <span class="dot"></span>2K – 5K USD
-            </button>
-            <button type="button" class="ms-opt" data-inversion="5k-10k USD" data-inv-apto="1">
-              <span class="dot"></span>5K – 10K USD
-            </button>
-            <button type="button" class="ms-opt" data-inversion="Más de 10k USD" data-inv-apto="1">
-              <span class="dot"></span>Más de 10K USD
-            </button>
-          </div>
-          <p class="ms-error" id="err-inversion">Elegí cuánto invertís por mes.</p>
-        </div>
-
-        <button type="button" class="ms-btn" id="ms-submit">Reservar mi lugar →</button>
-        <button type="button" class="ms-back" data-goto="2">← Volver</button>
-      </div>
-
-      <!-- NO CALIFICA — pantalla final, sin retorno -->
-      <div class="ms-final" id="ms-reject">
-        <span class="ms-icon">✕</span>
-        <h3>Este webinar no es para vos</h3>
-        <p>Está armado para tiendas online que ya están invirtiendo en publicidad. Aplicado a otro modelo de negocio, o sin presupuesto de ads corriendo, no te va a servir.</p>
-        <p>Prefiero decírtelo ahora y no hacerte perder una hora.</p>
-        <!-- Esta pantalla solo aparece si RECHAZAR_NO_APTOS = true -->
-      </div>
-
-      <!-- GRACIAS -->
-      <div class="ms-final" id="ms-thanks">
-        <span class="ms-icon">✓</span>
-        <h3>Listo, tu lugar está reservado</h3>
-        <p>Revisá tu mail: ahí te llegan el link del webinar, los +30 creativos validados y la calculadora de márgenes.</p>
-        <!-- Esta pantalla aparece solo si WHATSAPP_URL está vacío o DEBUG = true -->
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<script>
-  /* ── MODAL ── */
-  (function () {
-    var modal = document.getElementById('form-modal');
-    var closeBtn = document.getElementById('modal-close');
-
-    function openModal() {
-      modal.classList.add('open');
-      document.body.classList.add('modal-open');
-      var primerInput = document.getElementById('ms-nombre');
-      if (primerInput && primerInput.offsetParent !== null) setTimeout(function () { primerInput.focus(); }, 120);
-    }
-    function closeModal() {
-      modal.classList.remove('open');
-      document.body.classList.remove('modal-open');
-      if (typeof window.msResetForm === 'function') window.msResetForm();
-    }
-
-    document.querySelectorAll('.js-open-form').forEach(function (el) {
-      el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
-    });
-
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-    });
-  })();
-</script>
-
 <script>
   /* ════════════════════════════════════════════════
-     FORMULARIO EN 3 PASOS — DESTINO ÚNICO: ZAPIER
+     BOTONES → WHATSAPP
      ════════════════════════════════════════════════
-     Todo sale por el webhook. Zapier se encarga de
-     repartir a iClosed y a ActiveCampaign.
+     Todos los botones de la página (.js-whatsapp)
+     llevan a este link. Pegalo una sola vez acá:
+       'https://chat.whatsapp.com/XXXXXXXXXXXXXXX'   (grupo)
+       'https://wa.me/5491161354143?text=Hola!'      (chat)
+     Vacío, los botones no hacen nada.
 
-     Al terminar, el lead va directo al link de
-     WhatsApp (WHATSAPP_URL). El webhook sale ANTES
-     del redirect y con keepalive, así que el alta
-     en ActiveCampaign no depende de a dónde vaya.
-
-     El mail con el acceso al webinar y los regalos
-     NO lo dispara esta página: lo dispara el Zap,
-     sumando el contacto a la lista o al tag del
-     webinar de Black Friday en ActiveCampaign.
-
-     OJO: si usás el mismo hook que Cyber Monday,
-     el Zap tiene que separar por el campo
-     `formulario` (webinar_blackfriday vs
-     video_cybermonday) para no mandar el mail
-     equivocado.
-
-     Eventos que salen por el hook:
-       lead     → completó los 3 pasos (calificado 1 o 0)
-       parcial  → solo si ENVIAR_PARCIALES = true
+     Al hacer clic se manda a GTM el evento
+     `click_whatsapp`, con la ubicación del botón,
+     para poder medirlo como conversión.
      ════════════════════════════════════════════════ */
   (function () {
-    var ZAPIER_HOOK = 'https://hooks.zapier.com/hooks/catch/25626237/4tfkbhi/';
-    var FORMULARIO = 'webinar_blackfriday';
-
-    // CALIFICADO = marca online Y 1k o más de inversión mensual
-    var RECHAZAR_NO_APTOS = false;     // true = el que no califica ve pantalla de corte
-                                       //        y no llega a WhatsApp
-    var ENVIAR_PARCIALES = false;      // en true, manda al pasar del paso 1 al 2
-
-    // PEGÁ ACÁ EL LINK DE WHATSAPP (grupo o chat), por ejemplo:
-    //   'https://chat.whatsapp.com/XXXXXXXXXXXXXXX'
-    //   'https://wa.me/5491161354143?text=Hola!'
-    // Vacío: no redirige y muestra "Listo, tu lugar está reservado" en el modal.
     var WHATSAPP_URL = '';
-    // DEBUG en true: no redirige y loguea todo en consola. Volver a false al publicar.
-    var DEBUG = false;
 
-    var form = document.getElementById('ms-form');
-    if (!form) return;
-
-    var pasos = form.querySelectorAll('.ms-step');
-    var barras = document.querySelectorAll('#ms-progress span');
-    var progress = document.getElementById('ms-progress');
-    var reject = document.getElementById('ms-reject');
-    var thanks = document.getElementById('ms-thanks');
-    var inputNombre = document.getElementById('ms-nombre');
-    var inputEmail = document.getElementById('ms-email');
-    var inputTel = document.getElementById('ms-tel');
-    var selectCc = document.getElementById('ms-cc');
-    var btnSubmit = document.getElementById('ms-submit');
-
-    var datos = { nombre: '', email: '', telefono: '', negocio: '', inversion: '' };
-    var negocioApto = false;
-    var inversionApta = false;
-    var enviado = false;
-    var rechazado = false;
-    var yaRedirigio = false;
-    var parcialEnviado = false;
-    var eventoId = '';
-    var calificado = false;
-
+    var destino = String(WHATSAPP_URL || '').trim();
     window.dataLayer = window.dataLayer || [];
 
-    /* ── TRACKING: UTMs y click IDs ── */
-    var TRACKING = (function () {
-      var claves = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid', 'ttclid'];
-      var guardado = {};
-      try { guardado = JSON.parse(sessionStorage.getItem('peakk_tracking') || '{}'); } catch (e) { guardado = {}; }
-      try {
-        var qs = new URLSearchParams(window.location.search);
-        claves.forEach(function (k) { var v = qs.get(k); if (v) guardado[k] = v; });
-        sessionStorage.setItem('peakk_tracking', JSON.stringify(guardado));
-      } catch (e) {}
-      guardado.landing_url = window.location.href.split('#')[0];
-      guardado.referrer = document.referrer || '';
-      return guardado;
-    })();
-
-    function nuevoEventoId() {
-      return 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
-    }
-
-    function partirNombre(n) {
-      var p = String(n || '').trim().split(/\s+/);
-      var first = p.shift() || '';
-      return { firstName: first, lastName: p.join(' ') };
-    }
-
-    /* ── TELÉFONO A E.164 ── */
-    function normalizarTelefono(cc, raw) {
-      var n = String(raw || '').replace(/\D/g, '');
-      if (!n) return '';
-      n = n.replace(/^0+/, '');
-      if (n.indexOf(cc) === 0 && n.length > cc.length + 7) n = n.slice(cc.length);
-      if (cc === '54') {
-        n = n.replace(/^9/, '');
-        n = n.replace(/^(\d{2,4})15(\d{6,8})$/, '$1$2');
-        n = '9' + n;
-      }
-      if (n.length < 8 || n.length > 13) return '';
-      return '+' + cc + n;
-    }
-
-    /* ── WEBHOOK A ZAPIER (fire and forget, form-encoded, keepalive) ── */
-    function enviarWebhook(payload) {
-      if (!ZAPIER_HOOK) {
-        if (DEBUG) console.warn('[HOOK] falta configurar ZAPIER_HOOK', payload);
-        return;
-      }
-      var body = new URLSearchParams();
-      Object.keys(payload).forEach(function (k) {
-        if (payload[k] !== undefined && payload[k] !== null && payload[k] !== '') body.append(k, payload[k]);
-      });
-      Object.keys(TRACKING).forEach(function (k) {
-        if (TRACKING[k]) body.append(k, TRACKING[k]);
-      });
-      if (DEBUG) console.log('[HOOK] →', payload.evento, payload);
-      try {
-        fetch(ZAPIER_HOOK, {
-          method: 'POST',
-          mode: 'no-cors',
-          keepalive: true,
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body: body.toString()
-        }).catch(function (e) { console.error('[HOOK] falló el envío', e); });
-      } catch (e) { console.error('[HOOK] falló el envío', e); }
-    }
-
-    function payloadBase(evento) {
-      var n = partirNombre(datos.nombre);
-      return {
-        evento: evento,
-        evento_id: eventoId,
-        formulario: FORMULARIO,
-        nombre: datos.nombre,
-        firstName: n.firstName,
-        lastName: n.lastName,
-        email: datos.email,
-        telefono: datos.telefono,
-        tipo_negocio: datos.negocio,
-        inversion_ads: datos.inversion,
-        marca_online: negocioApto ? '1' : '0',
-        invierte_1k_o_mas: inversionApta ? '1' : '0',
-        calificado: calificado ? '1' : '0',
-        fecha: new Date().toISOString()
-      };
-    }
-
-    function irA(n) {
-      reject.classList.remove('active');
-      thanks.classList.remove('active');
-      progress.style.display = 'flex';
-      pasos.forEach(function (p) { p.classList.toggle('active', p.dataset.step === String(n)); });
-      barras.forEach(function (b, i) { b.classList.toggle('done', i < n); });
-    }
-
-    function pantallaFinal(el) {
-      pasos.forEach(function (p) { p.classList.remove('active'); });
-      progress.style.display = 'none';
-      reject.classList.remove('active');
-      thanks.classList.remove('active');
-      el.classList.add('active');
-    }
-
-    function marcarError(input, errId, mostrar) {
-      var err = document.getElementById(errId);
-      input.classList.toggle('has-error', mostrar);
-      err.classList.toggle('show', mostrar);
-    }
-
-    /* ── VALIDACIÓN DE EMAIL ── */
-    var DOMINIOS_OK = [
-      'gmail.com', 'hotmail.com', 'hotmail.com.ar', 'hotmail.es', 'outlook.com', 'outlook.es',
-      'outlook.com.ar', 'live.com', 'live.com.ar', 'yahoo.com', 'yahoo.com.ar', 'yahoo.es',
-      'icloud.com', 'me.com', 'mac.com', 'aol.com', 'mail.com', 'gmx.com', 'zoho.com',
-      'proton.me', 'protonmail.com', 'fibertel.com.ar', 'speedy.com.ar', 'arnet.com.ar',
-      'ciudad.com.ar', 'uol.com.ar', 'terra.com.ar'
-    ];
-
-    var DOMINIOS_TEMP = [
-      'mailinator.com', 'yopmail.com', 'guerrillamail.com', 'sharklasers.com', '10minutemail.com',
-      'tempmail.com', 'temp-mail.org', 'trashmail.com', 'getnada.com', 'maildrop.cc',
-      'dispostable.com', 'fakeinbox.com', 'throwawaymail.com', 'mailnesia.com', 'mohmal.com',
-      'emailondeck.com', 'spamgourmet.com', 'discard.email', 'moakt.com', 'tempr.email'
-    ];
-
-    function distancia(a, b) {
-      var m = a.length, n = b.length, fila = [], i, j, prev, tmp;
-      for (j = 0; j <= n; j++) fila[j] = j;
-      for (i = 1; i <= m; i++) {
-        prev = fila[0];
-        fila[0] = i;
-        for (j = 1; j <= n; j++) {
-          tmp = fila[j];
-          fila[j] = Math.min(fila[j] + 1, fila[j - 1] + 1, prev + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
-          prev = tmp;
-        }
-      }
-      return fila[n];
-    }
-
-    function validarEmail(valor) {
-      var v = String(valor || '').trim();
-
-      if (!v) return { ok: false, msg: 'Escribí tu email para continuar.' };
-      if (/\s/.test(v)) return { ok: false, msg: 'El email no puede llevar espacios.' };
-      if (/[,;]/.test(v)) return { ok: false, msg: 'Dejá un solo email, sin comas ni punto y coma.' };
-
-      var partes = v.split('@');
-      if (partes.length !== 2) {
-        return { ok: false, msg: v.indexOf('@') === -1 ? 'Falta el @ en el email.' : 'El email tiene más de un @.' };
-      }
-
-      var local = partes[0];
-      var dominio = partes[1].toLowerCase();
-
-      if (!local) return { ok: false, msg: 'Falta la parte de antes del @.' };
-      if (local.length > 64) return { ok: false, msg: 'La parte de antes del @ es demasiado larga.' };
-      if (!/^[a-zA-Z0-9._%+\-']+$/.test(local) || /^[._\-]/.test(local) || /[._\-]$/.test(local) || local.indexOf('..') !== -1) {
-        return { ok: false, msg: 'Revisá lo que va antes del @: hay un caracter que no corresponde.' };
-      }
-
-      if (!dominio) return { ok: false, msg: 'Falta el dominio después del @.' };
-      if (dominio.indexOf('.') === -1) return { ok: false, msg: 'Al dominio le falta la terminación (por ejemplo, .com).' };
-      if (!/^[a-z0-9]([a-z0-9\-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9\-]*[a-z0-9])?)+$/.test(dominio)) {
-        return { ok: false, msg: 'Revisá el dominio: hay un punto o un guion de más.' };
-      }
-
-      var tld = dominio.split('.').pop();
-      if (tld.length < 2 || /[0-9]/.test(tld)) return { ok: false, msg: 'La terminación del dominio no es válida.' };
-
-      if (DOMINIOS_TEMP.indexOf(dominio) !== -1) {
-        return { ok: false, msg: 'Ese es un email temporal y no te va a llegar el acceso. Dejá una casilla real.' };
-      }
-
-      if (DOMINIOS_OK.indexOf(dominio) !== -1) return { ok: true };
-
-      var mejor = '', mejorDist = 99, d, dist;
-      for (var i = 0; i < DOMINIOS_OK.length; i++) {
-        d = DOMINIOS_OK[i];
-        dist = distancia(dominio, d);
-        if (dist < mejorDist) { mejorDist = dist; mejor = d; }
-      }
-      if (mejorDist > 0 && mejorDist <= 2 && Math.abs(dominio.length - mejor.length) <= 2) {
-        return { ok: false, sugerencia: local + '@' + mejor, msg: '' };
-      }
-
-      return { ok: true };
-    }
-
-    var sugBox = document.getElementById('sug-email');
-    var sugBtn = document.getElementById('sug-email-btn');
-    var sugActiva = '';
-
-    function mostrarSugerencia(email) {
-      sugActiva = email;
-      sugBtn.textContent = email;
-      sugBox.classList.add('show');
-    }
-    function ocultarSugerencia() {
-      sugActiva = '';
-      sugBox.classList.remove('show');
-    }
-
-    sugBtn.addEventListener('click', function () {
-      inputEmail.value = sugBtn.textContent;
-      ocultarSugerencia();
-      marcarError(inputEmail, 'err-email', false);
-      inputEmail.focus();
-    });
-
-    /* ── PASO 1 → 2 ── */
-    document.getElementById('ms-next-1').addEventListener('click', function () {
-      var nombre = inputNombre.value.trim();
-      var email = inputEmail.value.trim();
-      var okNombre = nombre.length > 1 && /[a-zA-ZÀ-ÿ]/.test(nombre);
-      var res = validarEmail(email);
-
-      marcarError(inputNombre, 'err-nombre', !okNombre);
-      if (!okNombre) { inputNombre.focus(); return; }
-
-      // Typo probable: se avisa una vez. Si insiste, se acepta lo que escribió.
-      if (!res.ok && res.sugerencia) {
-        if (sugActiva !== res.sugerencia) {
-          mostrarSugerencia(res.sugerencia);
-          marcarError(inputEmail, 'err-email', false);
-          inputEmail.focus();
-          return;
-        }
-        res = { ok: true };
-      }
-
-      if (!res.ok) {
-        ocultarSugerencia();
-        document.getElementById('err-email').textContent = res.msg;
-        marcarError(inputEmail, 'err-email', true);
-        inputEmail.focus();
-        return;
-      }
-
-      marcarError(inputEmail, 'err-email', false);
-      ocultarSugerencia();
-
-      datos.nombre = nombre;
-      datos.email = email;
-
-      if (ENVIAR_PARCIALES && !parcialEnviado) {
-        parcialEnviado = true;
-        eventoId = nuevoEventoId();
-        enviarWebhook(payloadBase('parcial'));
-      }
-
-      irA(2);
-      setTimeout(function () { inputTel.focus(); }, 180);
-    });
-
-    inputEmail.addEventListener('blur', function () {
-      var v = this.value.trim();
-      if (!v) return;
-      var res = validarEmail(v);
-      if (res.ok) { ocultarSugerencia(); return; }
-      if (res.sugerencia) { mostrarSugerencia(res.sugerencia); return; }
-      document.getElementById('err-email').textContent = res.msg;
-      marcarError(inputEmail, 'err-email', true);
-    });
-
-    [inputNombre, inputEmail].forEach(function (inp) {
-      inp.addEventListener('input', function () {
-        this.classList.remove('has-error');
-        var err = this.closest('.ms-field').querySelector('.ms-error');
-        if (err) err.classList.remove('show');
-        if (this === inputEmail) ocultarSugerencia();
-      });
-      inp.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') { e.preventDefault(); document.getElementById('ms-next-1').click(); }
-      });
-    });
-
-    /* ── PASO 2 → 3 (teléfono) ── */
-    document.getElementById('ms-next-2').addEventListener('click', function () {
-      var raw = inputTel.value.trim();
-      var tel = normalizarTelefono(selectCc.value, raw);
-
-      if (!raw) {
-        document.getElementById('err-tel').textContent = 'Dejanos tu teléfono para continuar.';
-        marcarError(inputTel, 'err-tel', true);
-        inputTel.focus();
-        return;
-      }
-      if (!tel) {
-        document.getElementById('err-tel').textContent = 'Revisá el número: con característica y sin el 15.';
-        marcarError(inputTel, 'err-tel', true);
-        inputTel.focus();
-        return;
-      }
-
-      marcarError(inputTel, 'err-tel', false);
-      datos.telefono = tel;
-      if (DEBUG) console.log('[TEL] normalizado:', tel);
-      irA(3);
-    });
-
-    inputTel.addEventListener('input', function () {
-      this.classList.remove('has-error');
-      document.getElementById('err-tel').classList.remove('show');
-    });
-    inputTel.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') { e.preventDefault(); document.getElementById('ms-next-2').click(); }
-    });
-
-    /* ── PASO 3, pregunta 1: tipo de negocio ── */
-    form.querySelectorAll('[data-negocio]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (rechazado || enviado) return;
-        form.querySelectorAll('[data-negocio]').forEach(function (b) { b.classList.remove('selected'); });
-        btn.classList.add('selected');
-        datos.negocio = btn.dataset.negocio;
-        negocioApto = btn.dataset.apto === '1';
-        document.getElementById('err-negocio').classList.remove('show');
-      });
-    });
-
-    /* ── PASO 3, pregunta 2: inversión en ads ── */
-    form.querySelectorAll('[data-inversion]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (rechazado || enviado) return;
-        form.querySelectorAll('[data-inversion]').forEach(function (b) { b.classList.remove('selected'); });
-        btn.classList.add('selected');
-        datos.inversion = btn.dataset.inversion;
-        inversionApta = btn.dataset.invApto === '1';
-        document.getElementById('err-inversion').classList.remove('show');
-      });
-    });
-
-    /* ── Volver (nunca desde el rechazo) ── */
-    form.querySelectorAll('[data-goto]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (rechazado || enviado) return;
-        irA(parseInt(btn.dataset.goto, 10));
-      });
-    });
-
-    /* ── Redirect al link de WhatsApp ──
-       El link va tal cual, sin agregarle parámetros: los links de grupo
-       y de wa.me no los necesitan. Los datos del lead ya viajaron a
-       Zapier por el webhook. */
-    function redirigir() {
-      if (yaRedirigio) return;
-      yaRedirigio = true;
-
-      var destino = String(WHATSAPP_URL || '').trim();
-      if (DEBUG || !destino) {
-        if (DEBUG) console.log('[FIN] destino:', destino || '(sin link: pantalla de confirmación en el modal)', datos);
-        pantallaFinal(thanks);
-        return;
-      }
-
-      window.location.href = destino;
-    }
-
-    /* ── Envío ── */
-    btnSubmit.addEventListener('click', function () {
-      if (enviado) return;
-
-      var faltaNegocio = !datos.negocio;
-      var faltaInversion = !datos.inversion;
-      document.getElementById('err-negocio').classList.toggle('show', faltaNegocio);
-      document.getElementById('err-inversion').classList.toggle('show', faltaInversion);
-      if (faltaNegocio || faltaInversion) {
-        var primerError = document.getElementById(faltaNegocio ? 'err-negocio' : 'err-inversion');
-        primerError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-
-      calificado = negocioApto && inversionApta;
-      if (!eventoId) eventoId = nuevoEventoId();
-
-      if (RECHAZAR_NO_APTOS && !calificado) {
-        rechazado = true;
-        enviarWebhook(payloadBase('lead'));
+    document.querySelectorAll('.js-whatsapp').forEach(function (a) {
+      if (destino) a.href = destino;
+      a.addEventListener('click', function (e) {
+        if (!destino) { e.preventDefault(); console.warn('[WhatsApp] falta pegar el link en WHATSAPP_URL'); return; }
         window.dataLayer.push({
-          event: 'lead_no_calificado',
-          formulario: FORMULARIO,
-          tipo_negocio: datos.negocio,
-          inversion_ads: datos.inversion,
-          lead_calificado: 0,
-          evento_id: eventoId
+          event: 'click_whatsapp',
+          formulario: 'webinar_blackfriday',
+          ubicacion: a.dataset.ubicacion || ''
         });
-        pantallaFinal(reject);
-        return;
-      }
-
-      enviado = true;
-      btnSubmit.disabled = true;
-      btnSubmit.textContent = 'Reservando...';
-
-      enviarWebhook(payloadBase('lead'));
-
-      window.dataLayer.push({
-        event: calificado ? 'lead_calificado' : 'lead_no_calificado',
-        formulario: FORMULARIO,
-        tipo_negocio: datos.negocio,
-        inversion_ads: datos.inversion,
-        lead_calificado: calificado ? 1 : 0,
-        evento_id: eventoId,
-        eventCallback: redirigir,
-        eventTimeout: 2000
       });
-      if (DEBUG) console.log('[GTM]', calificado ? 'lead_calificado' : 'lead_no_calificado', datos);
-
-      // Red de seguridad por si GTM está bloqueado
-      setTimeout(redirigir, 2200);
     });
-
-    /* ── Reinicio al cerrar (no aplica si ya envió o fue descalificado) ── */
-    window.msResetForm = function () {
-      if (enviado || rechazado) return;
-      irA(1);
-      form.querySelectorAll('.ms-opt').forEach(function (b) { b.classList.remove('selected'); });
-      datos.negocio = '';
-      datos.inversion = '';
-      negocioApto = false;
-      inversionApta = false;
-    };
   })();
 </script>
 
